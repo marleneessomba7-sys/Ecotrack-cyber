@@ -1,0 +1,34 @@
+vars:
+  address-groups:
+    HOME_NET: "[10.10.0.0/16]"
+    EXTERNAL_NET: "!$HOME_NET"
+
+af-packet:
+  - interface: igb0
+    cluster-id: 99
+    cluster-type: cluster_flow
+    defrag: yes
+
+default-rule-path: /etc/suricata/rules
+rule-files:
+  - suricata.rules
+  - emerging-threats.rules
+
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: /var/log/suricata/eve.json
+      types:
+        - alert
+        - http
+        - dns
+        - tls
+        - ssh
+        - flow
+
+logging:
+  default-log-level: info
+  outputs:
+    - console:
+        enabled: yes
