@@ -26,12 +26,11 @@ configurations/ → fichiers pfSense, Suricata, Wazuh, Prometheus
 
 scripts/ → scripts d’installation
 
-documentation/ → rapports M1
+documentation/ → rapports 
 
 🚀 Stack technique
-pfSense
 
-Suricata
+pfSense
 
 Wazuh SIEM
 
