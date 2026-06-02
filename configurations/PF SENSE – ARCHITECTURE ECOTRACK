@@ -1,0 +1,28 @@
+Interfaces physiques :
+  - igb0 : vers switch cœur de réseau
+  - igb1 : vers WAN
+
+VLANs configurés sur igb0 :
+  - VLAN 10 : DMZ        → 10.10.1.0/24
+  - VLAN 20 : LAN APP    → 10.10.2.0/24
+  - VLAN 30 : MGMT/MON   → 10.10.3.0/24
+  - VLAN 40 : IOT        → 10.10.4.0/24
+
+DHCP :
+  - VLAN 10 : 10.10.1.100–10.10.1.200
+  - VLAN 20 : 10.10.2.100–10.10.2.200
+  - VLAN 30 : 10.10.3.100–10.10.3.200
+  - VLAN 40 : 10.10.4.100–10.10.4.200
+
+POLITIQUE FIREWALL (résumé) :
+  - Par défaut : deny all
+  - DMZ → WAN : autorisé HTTP/HTTPS sortant
+  - LAN APP → WAN : autorisé HTTP/HTTPS, NTP, DNS
+  - MGMT → tous VLANs : SSH, HTTPS, Wazuh, Prometheus
+  - IOT → MQTT broker uniquement (10.10.4.10:8883)
+  - Inter‑VLAN : bloqué sauf règles explicites
+
+EXEMPLES DE RÈGLES (vue logique) :
+  - Pass : VLAN30 (MGMT) → any, ports 22,443,5601,9200,1514
+  - Block : VLAN10 (DMZ) → VLAN20 (LAN APP)
+  - Pass : VLAN40 (IOT) → 10.10.4.10 port 8883 (MQTT TLS)
