@@ -41,3 +41,12 @@ Docker
 PostgreSQL + PostGIS
 
 MQTT Mosquitto
+schéma réseau
+
+schéma VLAN
+
+schéma SIEM
+
+schéma Gantt
+
+schéma pipeline CI/CD
