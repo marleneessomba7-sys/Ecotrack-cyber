@@ -1,9 +1,15 @@
-apiVersion: 1
-
-datasources:
-  - name: Prometheus
-    type: prometheus
-    access: proxy
-    url: http://prometheus:9090
-    isDefault: true
+{
+  "title": "ECOTRACK - Infrastructure",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "CPU ECO-APP",
+      "targets": [
+        {
+          "expr": "100 - (avg by(instance)(irate(node_cpu_seconds_total{mode=\"idle\",instance=\"10.10.2.10:9100\"}[5m])) * 100)"
+        }
+      ]
+    }
+  ]
+}
 
