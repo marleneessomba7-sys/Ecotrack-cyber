@@ -1,0 +1,34 @@
+---
+# Playbook : Déploiement sécurité ECOTRACK
+# Installe Suricata + Wazuh + Fail2ban sur ECO-SEC
+
+- name: Deploy Security Stack ECOTRACK
+  hosts: eco-sec
+  become: yes
+  vars:
+    suricata_version: "7.0"
+    wazuh_version: "4.7"
+
+  tasks:
+    - name: Install Suricata IDS/IPS
+      apt:
+        name: suricata
+        state: present
+        update_cache: yes
+
+    - name: Copy custom ECOTRACK rules
+      copy:
+        src: ../../suricata/local.rules
+        dest: /etc/suricata/rules/local.rules
+        mode: '0644'
+
+    - name: Install Fail2ban
+      apt:
+        name: fail2ban
+        state: present
+
+    - name: Enable Fail2ban service
+      systemd:
+        name: fail2ban
+        enabled: yes
+        state: started

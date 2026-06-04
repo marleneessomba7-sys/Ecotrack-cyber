@@ -1,0 +1,28 @@
+# Règles Suricata personnalisées ECOTRACK
+# 5 règles obligatoires pour le projet
+
+# Règle 1 : Bruteforce SSH (5 tentatives/min)
+alert ssh any any -> any 22 (msg:"ECOTRACK SSH Bruteforce Detected"; \
+  threshold: type threshold, track by_src, count 5, seconds 60; \
+  sid:1000001; rev:1;)
+
+# Règle 2 : Bruteforce API /auth/login (10 req/min)
+alert http any any -> any 3000 (msg:"ECOTRACK API Bruteforce Login"; \
+  content:"POST"; http_method; content:"/api/auth/login"; http_uri; \
+  threshold: type threshold, track by_src, count 10, seconds 60; \
+  sid:1000002; rev:1;)
+
+# Règle 3 : Scan de ports (10 ports/30s)
+alert tcp any any -> any any (msg:"ECOTRACK Port Scan Detected"; \
+  flags:S; threshold: type threshold, track by_src, count 10, seconds 30; \
+  sid:1000003; rev:1;)
+
+# Règle 4 : Injection SQL (UNION SELECT)
+alert http any any -> any any (msg:"ECOTRACK SQL Injection Attempt"; \
+  content:"UNION"; nocase; content:"SELECT"; nocase; \
+  sid:1000004; rev:1;)
+
+# Règle 5 : Trafic IoT anormal VLAN 40 (>100 msg/min/capteur)
+alert tcp 10.10.4.0/24 any -> 10.10.4.10 1883 (msg:"ECOTRACK IoT Abnormal Traffic"; \
+  threshold: type threshold, track by_src, count 100, seconds 60; \
+  sid:1000005; rev:1;)
