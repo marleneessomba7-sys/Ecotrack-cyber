@@ -53,45 +53,34 @@ Les valeurs inférieures à 100 % correspondent aux opérations de maintenance, 
 
 Superviser les composants de sécurité déployés dans l'infrastructure ECOTRACK.
 
-## Éléments supervisés
+### Activité Réseau DMZ
 
-- pfSense
-- Suricata IDS
-- Activité réseau DMZ
-- Activité réseau Management
-- Connexions TCP
-- Événements de sécurité
+#### Objectif
 
-## Tests de sécurité réalisés
+Surveiller le trafic réseau entrant observé sur le serveur **ECO-PROXY** situé dans la zone DMZ.
 
-### Détection SSH
+#### Métrique utilisée
 
-Simulation d'une connexion SSH vers un serveur ECOTRACK :
-
-```bash
-ssh fakeuser@10.10.3.20
+```promql
+rate(node_network_receive_bytes_total{instance="10.10.1.10:9100"}[5m])
 ```
 
-Résultat :
+#### Description
 
-- Connexion détectée par Suricata
-- Journalisation dans `fast.log`
+Cette métrique mesure le débit de données reçues par le serveur ECO-PROXY sur une fenêtre glissante de 5 minutes.
 
-### Détection de scan réseau
+Le graphique permet :
 
-Simulation d'une reconnaissance réseau :
+- d'observer l'activité réseau de la DMZ ;
+- d'identifier les pics de trafic ;
+- de détecter des comportements inhabituels ;
+- de surveiller les services exposés vers les autres zones du réseau.
 
-```bash
-sudo nmap -sS -T4 -p- 10.10.3.20
-```
+#### Résultat
 
-Résultat :
+Le panneau Grafana affiche l'évolution du trafic réseau reçu par ECO-PROXY en temps réel. Les variations observées correspondent aux échanges réseau générés par les services ECOTRACK et aux opérations de test réalisées durant le projet.
 
-- Activité réseau observée
-- Génération d'événements de sécurité
-
-![Security Dashboard](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/grafana/dashboards/Activit%C3%A9%20R%C3%A9seau.png?raw=true)
-
+![Activité Réseau DMZ](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/grafana/dashboards/Activit%C3%A9%20R%C3%A9seau.png?raw=true)
 ---
 
 # 3. IoT Dashboard (iot.json)
