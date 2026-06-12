@@ -60,13 +60,12 @@ Vérification du service :
 ```bash
 sudo systemctl status suricata
 ```
-
 Résultat attendu :
 
 ```text
 active (running)
 ```
-
+![Test Nmap](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/suricata/ssh-detection.png?raw=true)
 ---
 
 ## Tests réalisés
@@ -90,9 +89,10 @@ dans :
 ```bash
 /var/log/suricata/fast.log
 ```
-## Exemple d'exécution
+### Résultat du test SSH
 ![Test Nmap](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/suricata/ssh-detection.png?raw=true)
----
+
+La tentative de connexion SSH a été détectée et enregistrée par Suricata dans le journal fast.log.
 
 ### Test de scan réseau
 
@@ -156,3 +156,4 @@ ansible all -i ~/inventory.ini -a "date"
 ## Conclusion
 
 L'intégration de Suricata permet à ECOTRACK de disposer d'une capacité de détection d'intrusion centralisée et d'une visibilité accrue sur les activités réseau. Les règles personnalisées et les tests réalisés démontrent la capacité du système à identifier plusieurs scénarios d'attaque courants dans un environnement d'entreprise.
+
