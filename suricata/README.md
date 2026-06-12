@@ -65,7 +65,7 @@ Résultat attendu :
 ```text
 active (running)
 ```
-![Test Nmap](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/suricata/ssh-detection.png?raw=true)
+![Suricata active](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/suricata/suricata-status.png?raw=true)
 ---
 
 ## Tests réalisés
@@ -90,7 +90,7 @@ dans :
 /var/log/suricata/fast.log
 ```
 ### Résultat du test SSH
-![Test Nmap](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/suricata/ssh-detection.png?raw=true)
+![Test ssh](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/suricata/ssh-detection.png?raw=true)
 
 La tentative de connexion SSH a été détectée et enregistrée par Suricata dans le journal fast.log.
 
