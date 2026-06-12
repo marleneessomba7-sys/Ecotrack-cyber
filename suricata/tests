@@ -1,1 +1,114 @@
+# Tests de validation Suricata – ECOTRACK
 
+## Objectif
+
+Cette section présente les tests réalisés afin de valider le fonctionnement du système de détection d'intrusion Suricata déployé sur le serveur ECO-SEC.
+
+Les tests ont été effectués depuis les machines du laboratoire ECOTRACK afin de simuler différentes activités réseau.
+
+---
+
+# Test 1 – Détection d'une connexion SSH
+
+## Commande utilisée
+
+```bash
+ssh fakeuser@10.10.3.20
+```
+
+## Objectif
+
+Simuler une tentative de connexion SSH afin de vérifier que Suricata détecte le trafic SSH.
+
+## Résultat
+
+Alerte observée dans :
+
+```bash
+sudo tail -f /var/log/suricata/fast.log
+```
+
+Exemple :
+
+```text
+SSH connection detected
+```
+
+## Capture
+
+![Détection SSH](../screenshots/ssh-detection.png)
+
+---
+
+# Test 2 – Détection d'un scan réseau
+
+## Commande utilisée
+
+```bash
+sudo nmap -sS -T4 -p- 10.10.3.20
+```
+
+## Objectif
+
+Simuler une phase de reconnaissance réseau réalisée par un attaquant.
+
+## Résultat
+
+Suricata détecte les connexions générées par le scan et les enregistre dans les journaux de sécurité.
+
+## Capture
+
+![Scan Nmap](../screenshots/nmap-test.png)
+
+---
+
+# Test 3 – Vérification du service Suricata
+
+## Commande utilisée
+
+```bash
+sudo systemctl status suricata
+```
+
+## Objectif
+
+Vérifier que le moteur IDS est opérationnel.
+
+## Résultat attendu
+
+```text
+active (running)
+```
+
+## Capture
+
+![Service Suricata](../screenshots/suricata-status.png)
+
+---
+
+# Journaux analysés
+
+Les alertes et événements de sécurité sont enregistrés dans :
+
+```text
+/var/log/suricata/fast.log
+/var/log/suricata/eve.json
+```
+
+Consultation :
+
+```bash
+sudo tail -f /var/log/suricata/fast.log
+```
+
+```bash
+sudo jq . /var/log/suricata/eve.json
+```
+
+---
+
+# Conclusion
+
+Les tests réalisés confirment le bon fonctionnement de Suricata au sein de l'infrastructure ECOTRACK.
+
+Les événements générés lors des simulations sont correctement détectés et enregistrés, permettant au SOC ECOTRACK d'obtenir une visibilité sur les activités réseau et les comportements potentiellement malveillants.
