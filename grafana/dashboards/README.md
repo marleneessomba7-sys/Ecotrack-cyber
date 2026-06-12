@@ -90,7 +90,7 @@ Résultat :
 - Activité réseau observée
 - Génération d'événements de sécurité
 
-![Security Dashboard](security-dashboard.png)
+![Security Dashboard](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/grafana/dashboards/Activit%C3%A9%20R%C3%A9seau.png?raw=true)
 
 ---
 
