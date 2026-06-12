@@ -15,7 +15,7 @@ Commande :
 ansible-playbook -i ../inventory.ini check-infrastructure
 
 ## Exemple d'exécution
-![Exécution du playbook](screenshots/https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/e371b8e137fe15b45995f5b2b675ace51251c477/ansible/playbooks/Ansible%20playbook.png)
+![Exécution du playbook](Ansible%20playbook.png)
 
 ### Résultat
 
