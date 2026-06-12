@@ -43,7 +43,7 @@ Elle permet de mesurer le pourcentage de disponibilité observé sur les derniè
 
 Les valeurs inférieures à 100 % correspondent aux opérations de maintenance, redémarrages ou interruptions réalisées durant les phases de test du projet.
 
-![Infrastructure Dashboard](infrastructure-dashboard.png)
+![Infrastructure Dashboard](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/grafana/dashboards/Disponibilit%C3%A9.png?raw=true)
 
 ---
 
