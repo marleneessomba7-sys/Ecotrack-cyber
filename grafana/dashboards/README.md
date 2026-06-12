@@ -85,35 +85,39 @@ Le panneau Grafana affiche l'évolution du trafic réseau reçu par ECO-PROXY en
 
 # 3. IoT Dashboard (iot.json)
 
-## Objectif
+### Pipeline IoT – Flux Capteurs → MQTT → Application → Base de données
 
-Superviser le traitement des données IoT au sein de l'infrastructure ECOTRACK.
+#### Objectif
 
-## Éléments supervisés
+Visualiser le parcours complet des données IoT au sein de l'infrastructure ECOTRACK.
 
-- Broker MQTT
-- Activité du serveur MQTT
-- Flux réseau MQTT
-- Pipeline de traitement des données
-- Serveurs applicatifs et base de données
+#### Composants surveillés
 
-## Flux surveillé
+- ECO-MQTT : réception des données des capteurs
+- ECO-APP : traitement des données
+- ECO-DB : stockage des données
+
+#### Description
+
+Le graphique représente l'activité réseau observée sur les différents composants du pipeline IoT.
 
 ```text
 Capteurs IoT
       ↓
-   MQTT
+   ECO-MQTT
       ↓
-  ECO-APP
+   ECO-APP
       ↓
-  ECO-DB
+   ECO-DB
 ```
 
-Le tableau de bord permet de suivre le cheminement des données depuis leur réception jusqu'à leur stockage.
+Cette visualisation permet de vérifier que les données circulent correctement entre les différentes couches de l'architecture jusqu'à leur stockage final.
 
-![IoT Dashboard](iot-dashboard.png)
+#### Résultat
 
----
+Les échanges réseau observés démontrent le fonctionnement du pipeline IoT et la transmission des données depuis leur collecte jusqu'à leur stockage.
+
+![Pipeline IoT](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/grafana/dashboards/iot-pipeline.png?raw=true)
 
 # Technologies utilisées
 
