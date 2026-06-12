@@ -101,6 +101,7 @@ Vérification centralisée de l'heure sur l'ensemble des machines ECOTRACK :
 
 ```bash
 ansible all -i ~/inventory.ini -a "date"
+```
 
 ## Bénéfices
 
