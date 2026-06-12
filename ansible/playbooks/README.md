@@ -13,5 +13,7 @@ Commande :
 
 ```bash
 ansible-playbook -i ../inventory.ini check-infrastructure
-<img width="948" height="151" alt="image" src="https://github.com/user-attachments/assets/acbaf8ef-ba36-4de9-85fe-d9d8d81541df" />
+
+## Exemple d'exécution
+![Exécution du playbook](screenshots/playbook-execution.png)
 
