@@ -95,6 +95,13 @@ Cette commande permet de vérifier rapidement :
 
 ---
 
+### Synchronisation des serveurs
+
+Vérification centralisée de l'heure sur l'ensemble des machines ECOTRACK :
+
+```bash
+ansible all -i ~/inventory.ini -a "date"
+
 ## Bénéfices
 
 - Administration centralisée
