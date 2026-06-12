@@ -90,7 +90,8 @@ dans :
 ```bash
 /var/log/suricata/fast.log
 ```
-
+## Exemple d'exécution
+![Test Nmap](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/suricata/ssh-detection.png?raw=true)
 ---
 
 ### Test de scan réseau
