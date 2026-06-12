@@ -17,3 +17,18 @@ ansible-playbook -i ../inventory.ini check-infrastructure
 ## Exemple d'exécution
 ![Exécution du playbook](screenshots/playbook-execution.png)
 
+### Résultat
+
+Le playbook a été exécuté avec succès sur l'ensemble des serveurs ECOTRACK :
+
+- ECO-PROXY
+- ECO-APP
+- ECO-WEB
+- ECO-DB
+- ECO-SEC
+- ECO-MQTT
+
+Les informations collectées incluent :
+- le nom de la machine ;
+- le temps de fonctionnement (uptime) ;
+- l'utilisation de l'espace disque.
