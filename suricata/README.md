@@ -103,7 +103,8 @@ sudo nmap -sS -T4 -p- 10.10.3.20
 ```
 
 ```markdown
-![Test Nmap](nmap-test.png)
+![Test Nmap](<img width="560" height="203" alt="image" src="https://github.com/user-attachments/assets/81eec551-2b1f-4161-be86-d9e73cbf32ef" />
+)
 ```
 
 Objectif :
