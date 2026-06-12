@@ -101,7 +101,9 @@ Commande utilisée :
 sudo nmap -sS -T4 -p- 10.10.3.20
 ```
 ```
-![Img alt](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/d4cad453a198e87190ee4ac767e95ce39636c485/suricata/nmap-test.png)
+
+```markdown
+![Test Nmap](nmap-test.png)
 ```
 
 Objectif :
