@@ -35,6 +35,11 @@ L'infrastructure est composée des machines virtuelles suivantes :
 
 Cette segmentation permet de limiter les flux réseau et d'appliquer le principe de défense en profondeur.
 
+```
+##Architecture schematisée
+
+````
+
 ---
 
 # Sécurité réseau
