@@ -37,8 +37,8 @@ Cette segmentation permet de limiter les flux réseau et d'appliquer le principe
 
 ```
 ##Architecture schematisée
-
-````
+```
+![Architecture](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/Architecture%20globale.drawio.png?raw=true) 
 
 ---
 
