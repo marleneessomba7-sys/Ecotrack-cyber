@@ -36,7 +36,7 @@ L'infrastructure est composée des machines virtuelles suivantes :
 Cette segmentation permet de limiter les flux réseau et d'appliquer le principe de défense en profondeur.
 
 ```
-##Architecture schematisée
+## Architecture schematisée
 ```
 ![Architecture](https://github.com/marleneessomba7-sys/Ecotrack-cyber/blob/main/Architecture%20globale.drawio.png?raw=true) 
 
