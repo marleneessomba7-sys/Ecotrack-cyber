@@ -1,0 +1,24 @@
+---
+# ECOTRACK - Playbook Ansible depuis ECO-MON Bastion
+- name: "Hardening SSH toutes VMs"
+  hosts: all
+  become: true
+  tasks:
+    - name: "PermitRootLogin no"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^#?PermitRootLogin"
+        line: "PermitRootLogin no"
+    - name: "PasswordAuthentication no"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^#?PasswordAuthentication"
+        line: "PasswordAuthentication no"
+    - name: "UFW activ‚"
+      ufw:
+        state: enabled
+    - name: "node_exporter actif"
+      service:
+        name: prometheus-node-exporter
+        state: started
+        enabled: yes
