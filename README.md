@@ -1,4 +1,4 @@
-# ECOTRACK – Infrastructure IoT Sécurisée
+# ECOTRACK – Infrastructure IoT Sécurisée collecte des déchets
 
 ## Objectif du projet
 
