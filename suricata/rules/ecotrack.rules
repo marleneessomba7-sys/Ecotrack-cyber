@@ -1,3 +1,0 @@
-alert tcp any any - any (msg:"ECOTRACK Port Scan DMZ"; flags:S; threshold: type threshold, track by_src, count 10, seconds 5; classtype:network-scan; sid:9000003; rev:1;)
-alert http any any - any (msg:"ECOTRACK SQL Injection"; content:"UNION"; nocase; http_uri; content:"SELECT"; nocase; classtype:web-application-attack; sid:9000004; rev:1;)
-alert mqtt any any - 8883 (msg:"ECOTRACK IoT Abnormal Traffic"; threshold: type threshold, track by_src, count 100, seconds 60; sid:9000005; rev:1;)
