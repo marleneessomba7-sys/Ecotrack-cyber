@@ -1,1 +1,25 @@
 
+# Scripts d'installation ECOTRACK
+
+## Déploiement complet en 1 commande
+
+    ansible-playbook -i ansible/inventory/hosts.yml \
+      ansible/playbooks/deploy-pfsense.yml \
+      ansible/playbooks/deploy-security.yml \
+      ansible/playbooks/deploy-monitoring.yml \
+      --ask-vault-pass
+
+Durée : environ 23 minutes pour les 7 VM.
+
+## Scripts disponibles
+
+- deploy-pfsense.yml — Configuration du pare-feu, du routage et des VLAN
+- deploy-security.yml — Suricata, TLS, PKI, durcissement des hôtes
+- deploy-monitoring.yml — Prometheus, Grafana, ELK
+- backup.sh — Sauvegarde des configurations, de la base PostgreSQL et des certificats
+
+## Prérequis
+
+- Ansible installé sur le bastion (ECO-MON)
+- Accès SSH aux 7 VM
+- Vault Ansible configuré (--ask-vault-pass)
