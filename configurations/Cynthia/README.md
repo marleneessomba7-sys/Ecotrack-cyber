@@ -1,19 +1,48 @@
-# Configuration Cynthia - ECO-MON
+# Configuration Cynthia - ECO-APP
 
-## VM
-ECO-MON 10.10.3.10 VLAN Management VMnet4
+## Présentation
 
-## Services
-- Prometheus scrape 7 VMs node_exporter port 9100
-- Grafana dashboards Infrastructure Securite IoT
-- ELK Stack centralisation logs Suricata et systeme
-- Ansible Bastion SSH vers toutes les VMs via pfSense
+ECO-APP est le serveur applicatif principal de la plateforme ECOTRACK.
 
-## Acces
-- Grafana : http://10.10.3.10:3000
-- Prometheus : http://10.10.3.10:9090
-- Kibana : http://10.10.3.10:5601
+- VM : ECO-APP
+- Adresse IP : 10.10.2.10
+- Zone : LAN (10.10.2.0/24)
+- Technologie : Node.js
+- API REST sécurisée
 
-## Commandes Ansible depuis ECO-MON
-ansible all -i inventaire.ini -m ping
-ansible-playbook -i inventaire.ini playbook.yml
+## Authentification
+
+- JWT (JSON Web Token)
+- RBAC (Role Based Access Control)
+
+## Base de données
+
+- PostgreSQL
+- Hôte : 10.10.2.30
+- Port : 5432
+- Base : ecotrack
+
+## Cache
+
+- Redis
+- Hôte : 10.10.2.30
+- Port : 6379
+
+## Dépendances principales
+
+- Express
+- PostgreSQL (pg)
+- Redis
+- JWT
+- bcryptjs
+- dotenv
+
+## Port applicatif
+
+- TCP 3000
+
+## Sécurité
+
+- Authentification JWT
+- Contrôle d'accès RBAC
+- Communications protégées par TLS dans l'architecture ECOTRACK
