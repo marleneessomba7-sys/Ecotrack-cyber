@@ -46,3 +46,39 @@ ECO-APP est le serveur applicatif principal de la plateforme ECOTRACK.
 - Authentification JWT
 - Contrôle d'accès RBAC
 - Communications protégées par TLS dans l'architecture ECOTRACK
+
+# ECO-DB
+
+## Informations système
+
+- VM : ECO-DB
+- IP : 10.10.2.30
+- Zone : LAN
+
+## Technologies
+
+- PostgreSQL 14
+- PostGIS
+- Redis
+
+## Services
+
+### PostgreSQL
+
+Port : 5432
+
+### Redis
+
+Port : 6379
+
+## Sécurité
+
+- Authentification PostgreSQL via pg_hba.conf
+- Accès autorisé depuis ECO-APP (10.10.2.10)
+- Isolation réseau par pfSense
+
+## Sauvegarde
+
+Sauvegarde de la base :
+
+sudo -u postgres pg_dump ecotrack > ecotrack_backup.sql
