@@ -307,3 +307,7 @@ ECOTRACK constitue une infrastructure IoT sécurisée intégrant les principales
 * continuité de service.
 
 Le projet applique les principes de défense en profondeur, de moindre privilège et de supervision continue afin d'assurer la disponibilité, l'intégrité et la confidentialité des services.
+
+  Abstract
+
+  ECOTRACK is a secured IoT infrastructure for urban waste collection in a 500,000-inhabitant city. It connects 2,000 sensors that report fill levels in real time, which optimizes collection routes and reduces costs and emissions. The infrastructure runs on seven virtual machines, segmented into four VLANs, with a defence-in-depth approach: a pfSense firewall, TLS 1.3 encryption, an X.509 PKI, Suricata for intrusion detection and the ELK stack for log centralization. Everything is deployed automatically with Ansible
