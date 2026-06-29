@@ -3,7 +3,7 @@
 ## Relancer tous les services depuis ECO-MON
 ansible-playbook -i inventaire.ini playbook.yml
 
-## V‚rifier toutes les VMs
+## VÃ©rifier toutes les VMs
 ansible all -i inventaire.ini -m ping
 
 ## ECO-PROXY
