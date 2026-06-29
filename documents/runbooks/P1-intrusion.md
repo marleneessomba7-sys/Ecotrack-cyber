@@ -1,34 +1,32 @@
-\# Runbook P1 — Détection d'une intrusion
+# Runbook P1 — Détection d'une intrusion
 
+## Déclencheur
 
+Une alerte de sécurité est générée par **Suricata**, puis transmise par **Alertmanager**, qui envoie une notification sur le canal **Slack `#soc-alerts`**.
 
-\## Déclencheur
+---
 
-Suricata déclenche une alerte → Alertmanager notifie Slack
+## Étapes de résolution
 
+1. Réception de la notification Alertmanager sur **Slack `#soc-alerts`** (objectif : moins de 5 minutes).
+2. Analyse des événements dans **Kibana** afin d'identifier la nature de l'attaque, l'adresse IP source et les systèmes concernés.
+3. Blocage manuel de l'adresse IP malveillante dans **pfSense** à l'aide d'une règle temporaire de **24 heures**.
+4. Vérification des accès aux services critiques :
+   - PostgreSQL
+   - API ECOTRACK
+   - Broker MQTT
+5. En cas de compromission confirmée :
+   - Isoler la machine virtuelle concernée.
+   - Réaliser un snapshot.
+   - Effectuer une analyse forensique.
+6. Rédiger le rapport d'incident dans **Confluence** dans un délai maximal de **4 heures**.
+7. Organiser une revue post-incident dans les **48 heures** afin d'identifier les causes, les impacts et les actions correctives.
 
+---
 
-\## Étapes de résolution
+## Métriques
 
-1\. Alertmanager envoie notification Slack #soc-alerts (< 5 min)
-
-2\. Admin consulte Kibana pour analyser les logs
-
-3\. Blocage manuel de l'IP dans pfSense (règle temporaire 24h)
-
-4\. Vérification accès PostgreSQL, API et MQTT depuis l'IP bloquée
-
-5\. Si compromission : isolation VM, snapshot, analyse forensique
-
-6\. Rapport d'incident dans Confluence dans les 4 heures
-
-7\. Revue post-incident sous 48h
-
-
-
-\## Métriques
-
-\- MTTD cible : < 5 minutes
-
-\- MTTR cible : < 1 heure
-
+| Indicateur | Objectif |
+|------------|----------|
+| **MTTD** (Mean Time To Detect) | < 5 minutes |
+| **MTTR** (Mean Time To Respond) | < 1 heure |
