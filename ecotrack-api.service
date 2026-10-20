@@ -1,0 +1,18 @@
+[Unit]
+Description=ECOTRACK API (backend V2)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ecotrack
+WorkingDirectory=/opt/ecotrack/backend
+ExecStart=/usr/bin/node index.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

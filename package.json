@@ -1,0 +1,16 @@
+{
+  "name": "ecotrack-api",
+  "version": "2.0.0",
+  "description": "ECOTRACK V2 - backend minimal : conteneurs, mesures, statistiques par zone",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mqtt": "^5.10.0",
+    "pg": "^8.20.0"
+  }
+}
